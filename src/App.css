@@ -1,0 +1,17 @@
+.darkMode{
+  background-color: #0d0707;
+}
+
+.lightMode{
+  background-color: #fff;
+}
+.btn{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.myImage{
+  width: 25px;
+  height: 25px;
+  
+}
