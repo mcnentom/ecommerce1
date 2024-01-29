@@ -1,0 +1,62 @@
+img{
+    width: 15rem;
+    height: 18rem;
+}
+.general-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.myFetch-div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+.pTag{
+    display: none;
+
+}
+.pTag:hover{
+    display: block;
+}
+h2{
+    font-size: 1rem;
+}
+.search{
+    display: flex;
+    gap: 1rem;
+}
+input{
+    width: 20rem;
+    height: 2rem;
+    font-size: 1rem;
+    /* border: none; */
+    outline: none;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+button:hover{
+    background: blue;
+    color: white;
+    outline: none;
+    border: none;
+}
+.dropdown{
+    margin: 1rem;
+    width: 10rem;
+    height: 2rem;
+}
+@media screen and (max-width:600px){
+  .myFetch-div{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  input{
+    width: 6rem;
+  }
+  
+}
