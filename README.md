@@ -1,4 +1,4 @@
-# ecommerce1
+
 # A movie application website
  Provides functionalities such as a search bar ,filter bar to filter movies based on their genre and users can see the most recent movies releases.
 
