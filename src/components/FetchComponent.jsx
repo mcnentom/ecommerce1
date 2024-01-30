@@ -1,43 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './styling.css';
 
-const FetchComponent = () => {
-  const [movies, setMovies] = useState([]);
-  const [selectedGenre, setSelectedGenre] = useState('');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const url = 'https://api.themoviedb.org/3/movie/popular?api_key=bca0b27dc3c2608802db6d8d9bf57c06';
-
-      try {
-        const response = await fetch(url);
-
-        if (!response.ok) {
-          throw new Error('API request failed');
-        }
-
-        const data = await response.json();
-        setMovies(data.results);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const handleGenreChange = (event) => {
-    setSelectedGenre(event.target.value);
-  };
-
-  const filteredMovies = selectedGenre
-    ? movies.filter(movie => movie.genre_ids.includes(parseInt(selectedGenre)))
-    : movies;
-
+const FetchComponent = ({handleGenreChange, filteredMovies,selectedGenre }) => {
   return (
     <div className='general-div'>
-      <p>ALL MOVIES</p>
-      <div>
+      <p className='ptagVal'>ALL MOVIES</p>
+      <div className='selectDiv'>
         <select value={selectedGenre} onChange={handleGenreChange} className='dropdown'>
           <option value="">All Genres</option>
           <option value="18">Drama</option>

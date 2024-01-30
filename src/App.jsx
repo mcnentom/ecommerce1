@@ -4,6 +4,7 @@ import moon from './assets/moon.png';
 import sun from './assets/sun.jpg';
 import FetchComponent from './components/FetchComponent'
 import SearchBar from './components/Search'
+import Main from './components/Main'
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(
@@ -34,8 +35,7 @@ function App() {
           )}
         </button>
       </div>
-      <SearchBar/>
-      <FetchComponent/>
+      <Main/>
     </div>
   );
 }

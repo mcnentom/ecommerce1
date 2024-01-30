@@ -5,8 +5,9 @@ img{
 .general-div{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    gap: 1rem;
 }
 .myFetch-div{
     display: grid;
@@ -23,9 +24,13 @@ img{
 h2{
     font-size: 1rem;
 }
+.ptagVal{
+    margin-left: .9rem;
+}
 .search{
     display: flex;
     gap: 1rem;
+    margin-bottom: 1rem;
 }
 input{
     width: 20rem;
@@ -56,7 +61,7 @@ button:hover{
     grid-template-columns: 1fr;
   }
   input{
-    width: 6rem;
+    width: 55%;
   }
   
 }
