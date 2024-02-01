@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import FetchComponent from './FetchComponent';
 import Search from './Search';
-import './styling.css'
+import './styling.css';
 
-const main = () => {
+const Main = () => {
   const [movies, setMovies] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState('');
   const [query, setQuery] = useState('');
@@ -12,13 +12,9 @@ const main = () => {
     setQuery(e.target.value);
   };
 
-  const mydata = movies.filter(item => {
-    const isInGenre = selectedGenre
-      ? item.genre_ids.includes(parseInt(selectedGenre))
-      : true;
-    const isInTitle = item.title.toLowerCase().includes(query.toLowerCase());
-    return isInGenre && isInTitle;
-  });
+  const handleGenreChange = (event) => {
+    setSelectedGenre(event.target.value);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,20 +37,25 @@ const main = () => {
     fetchData();
   }, []);
 
-  const handleGenreChange = (event) => {
-    setSelectedGenre(event.target.value);
-  };
+  const filteredMovies = movies.filter((item) => {
+    const isInGenre = selectedGenre
+      ? item.genre_ids.includes(parseInt(selectedGenre))
+      : true;
+    const isInTitle = item.title.toLowerCase().includes(query.toLowerCase());
+    return isInGenre && isInTitle;
+  });
 
   return (
-    <div  className="AppDiv">
-      <Search query={query} onChangeHandler={onChangeHandler} />
-      <FetchComponent
-        handleGenreChange={handleGenreChange}
-        filteredMovies={mydata}
+    <div className="AppDiv">
+      <Search
+        query={query}
+        onChangeHandler={onChangeHandler}
         selectedGenre={selectedGenre}
+        
       />
+      <FetchComponent filteredMovies={filteredMovies}  handleGenreChange={handleGenreChange}/>
     </div>
   );
 };
 
-export default main;
+export default Main;
