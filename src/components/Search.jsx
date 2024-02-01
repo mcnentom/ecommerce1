@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import './styling.css'
 
-const SearchBar = () => {
-    const [movies, setMovies] = useState([]);
-    const [query, setQuery] = useState('');
+const SearchBar = ({query,onChangeHandler}) => {
+    // const [movies, setMovies] = useState([]);
+   
 
-    const onChangeHandler = (e) => {
-        setQuery(e.target.value);
-    }
+    // const fetchMovies = async () => {
+    //     try {
+    //         const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=bca0b27dc3c2608802db6d8d9bf57c06&query=${query}`);
+    //         const data = await response.json();
+    //         setMovies(data.results);
+    //     } catch (error) {
+    //         console.error('Error fetching movies:', error);
+    //         setMovies([]);
+    //     }
+    // }
 
-    const fetchMovies = async () => {
-        try {
-            const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=bca0b27dc3c2608802db6d8d9bf57c06&query=${query}`);
-            const data = await response.json();
-            setMovies(data.results);
-        } catch (error) {
-            console.error('Error fetching movies:', error);
-            setMovies([]);
-        }
-    }
-
-    useEffect(() => {
-        fetchMovies();
-    }, []);
+    // useEffect(() => {
+    //     fetchMovies();
+    // }, []);
 
     return (
         <div>
@@ -32,9 +29,9 @@ const SearchBar = () => {
                     value={query}
                     placeholder="Enter movie name"
                 />
-                <button type="button" onClick={fetchMovies}>Search</button>
+                {/* <button type="button" onClick={fetchMovies}>Search</button> */}
             </div>
-            <div>
+            {/* <div>
                 {movies.map(movie => (
                     <div key={movie.id}>
                         <h2>{movie.title}</h2>
@@ -43,7 +40,7 @@ const SearchBar = () => {
                         <p><strong>Release Date:</strong> {movie.release_date}</p>
                     </div>
                 ))}
-            </div>
+            </div> */}
         </div>
     );
 }
