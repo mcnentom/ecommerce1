@@ -18,7 +18,7 @@ const Main = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = 'https://api.themoviedb.org/3/movie/popular?api_key=bca0b27dc3c2608802db6d8d9bf57c06';
+      const url = 'https://api.themoviedb.org/3/movie/popular?api_key=40398562b89cba6eb183b2f639356f73';
 
       try {
         const response = await fetch(url);
